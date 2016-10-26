@@ -1,0 +1,44 @@
+.site-header {
+    border-top: 6px solid $separetor-color;
+    min-height: 180px;
+    display: flex;
+    position: relative;
+}
+
+.header-tab {
+    font-size: 26px;
+    font-weight: bold;
+    margin-right: 0;
+    margin-left: 100px;
+    color: inherit;
+    &:visited {
+      color: inherit;
+    }
+    &:hover {
+      text-decoration: inherit;
+    }
+}
+
+.tab-container {
+    width: 50vw;
+    border-bottom: thick solid $default-color;
+    margin: 5px;
+    align-self: flex-end;
+    color: $default-color;
+    &:hover {
+      border-color: $active-color;
+      color: $active-color;
+      text-decoration: none;
+    }
+    &:visited {
+      color: $default-color;
+    }
+}
+
+.tab-left-container {
+    .header-tab {
+      float: right;
+      margin-right: 100px;
+      margin-left: 0;
+    }
+}
