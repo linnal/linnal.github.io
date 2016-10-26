@@ -1,9 +1,11 @@
 <header class="site-header">
 
-    <div class="tab-container tab-left-container">
+    <div id="tab-news" class="tab-container tab-left-container
+      {% if page.path == 'index.html' %} active-tab {% else %} default-tab {% endif %} ">
       <a class="header-tab" href="{{ site.baseurl }}/">News</a>
     </div>
-    <div class="tab-container">
+    <div id="tab-about" class="tab-container
+      {% if page.path == 'about.html' %} active-tab {% else %} default-tab {% endif %} ">
       <a class="header-tab" href="/about">About</a>
     </div>
 

@@ -5,6 +5,16 @@
     position: relative;
 }
 
+.active-tab {
+  color: $active-color;
+  border-color: $active-color;
+}
+
+.default-tab {
+  color: $default-color;
+  border-color: $default-color;
+}
+
 .header-tab {
     font-size: 26px;
     font-weight: bold;
@@ -21,10 +31,10 @@
 
 .tab-container {
     width: 50vw;
-    border-bottom: thick solid $default-color;
+    border-bottom: thick solid;
     margin: 5px;
     align-self: flex-end;
-    color: $default-color;
+    // color: $default-color;
     &:hover {
       border-color: $active-color;
       color: $active-color;
@@ -36,8 +46,6 @@
 }
 
 .tab-left-container {
-    color: $active-color;
-    border-color: $active-color;
     .header-tab {
       float: right;
       margin-right: 100px;
