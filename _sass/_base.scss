@@ -91,16 +91,16 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: $default-color;
     text-decoration: none;
 
-    &:visited {
-        color: darken($brand-color, 15%);
+    &:visited:not(.header-tab, .button) {
+        color: darken($default-color, 15%);
     }
 
-    &:hover:not(.header-tab) {
-        color: $text-color;
-        text-decoration: underline;
+    &:hover:not(.header-tab, .button) {
+        color: $active-color;
+        text-decoration: none;
     }
 }
 

@@ -4,19 +4,18 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+  {% for post in site.posts %}
+    <div class="flex news-row">
+      <img src={{ post.image }} />
+      <div>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
-      </li>
-    {% endfor %}
-  </ul>
+        <p> {{ post.excerpt }} </p>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="button">Read more</a>
+      </div>
+    </div>
+  {% endfor %}
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
