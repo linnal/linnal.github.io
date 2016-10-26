@@ -1,0 +1,45 @@
+.profile_image {
+   border-radius: 50%;
+   width: 200px;
+   height: 200px;
+   border: 6px solid $separetor-color;
+}
+
+.about-description {
+  margin-top: 50px;
+}
+
+.icon {
+  margin: 10px;
+}
+
+.icon > svg path {
+   fill:  $active-color;
+   &:hover {
+     fill: $active-color;
+   }
+}
+
+.icon > svg {
+  width: 40px;
+  height: 40px;
+}
+
+.icon--twitter > svg path {
+   fill: transparent;
+   stroke: $active-color;
+}
+
+.name {
+  font-size: 26px;
+  font-weight: bold;
+  color: $default-color;
+}
+
+.flex {
+  display: flex;
+}
+
+.info-content {
+  margin: auto;
+}

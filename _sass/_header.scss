@@ -36,6 +36,8 @@
 }
 
 .tab-left-container {
+    color: $active-color;
+    border-color: $active-color;
     .header-tab {
       float: right;
       margin-right: 100px;
