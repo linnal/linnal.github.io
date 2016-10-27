@@ -1,6 +1,5 @@
 .site-header {
     border-top: 6px solid $separetor-color;
-    // min-height: 40px;
     display: flex;
     position: fixed;
 
@@ -10,10 +9,15 @@
     -moz-transition: all 0.4s ease-in-out;
     z-index: 9999;
     top: 0;
+    background-color: $background-color;
 }
 
 .shrink {
   padding-top: 20px;
+
+  &:hover {
+    padding-top: 100px;
+  }
 }
 
 .active-tab {
