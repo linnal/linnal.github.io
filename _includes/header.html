@@ -1,4 +1,4 @@
-<header class="site-header">
+<header id="header" class="site-header">
 
     <div class="tab-container tab-left-container
       {% if page.path != 'about.html' %} active-tab {% else %} default-tab {% endif %} ">
@@ -10,3 +10,16 @@
     </div>
 
 </header>
+
+<script>
+  window.onscroll = function() {shrinkHeader()};
+
+  function shrinkHeader() {
+      console.log("ciao");
+      if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+          document.getElementById("header").className = "site-header shrink";
+      } else {
+          document.getElementById("header").className = "site-header";
+      }
+  }
+</script>
