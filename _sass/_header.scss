@@ -8,6 +8,7 @@
     transition: all 0.4s ease-in-out;
     top: 0;
     background-color: $background-color;
+    box-shadow: 0px 10px 15px $default-color;
 }
 
 .shrink {
@@ -17,7 +18,7 @@
     padding-top: 100px;
   }
 }
- 
+
 
 .site-header:hover .header-u-image {
   width: 120px;
@@ -28,7 +29,7 @@
 .header-default-image {
   width: 120px;
   height: 120px;
-  left: 25vw;
+  left: 20vw;
   top: 72px;
   position: fixed;
   transition: all 0.4s ease-in-out;
@@ -37,7 +38,7 @@
 .header-u-image {
   width: 80px;
   height: 80px;
-  left: 25vw;
+  left: 20vw;
   top: 19px;
   position: fixed;
   transition: all 0.4s ease-in-out;
