@@ -6,7 +6,7 @@ layout: default
 
   {% for post in site.posts %}
     <div class="flex news-row">
-      <img src={{ post.image }} />
+      <img class="post-image" src={{ post.image }} />
       <div>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         <p> {{ post.excerpt }} </p>

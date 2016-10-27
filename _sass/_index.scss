@@ -11,7 +11,7 @@
     cursor: pointer;
     float: right;
     font-family: $text-font-family;
-    
+
     &:hover {
       background-color: $active-color;
       color: $background-color;
@@ -22,4 +22,9 @@
   border-bottom: 2px solid $separetor-color;
   padding-top: 50px;
   padding-bottom: 10px;
+}
+
+.post-image {
+  width: 100px;
+  height: 100px;
 }

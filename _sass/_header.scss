@@ -5,9 +5,7 @@
 
     padding-top: 100px;
     /* animation magic */
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    z-index: 9999;
+    transition: all 0.4s ease-in-out;
     top: 0;
     background-color: $background-color;
 }
@@ -18,6 +16,31 @@
   &:hover {
     padding-top: 100px;
   }
+}
+ 
+
+.site-header:hover .header-u-image {
+  width: 120px;
+  height: 120px;
+  top: 72px;
+}
+
+.header-default-image {
+  width: 120px;
+  height: 120px;
+  left: 25vw;
+  top: 72px;
+  position: fixed;
+  transition: all 0.4s ease-in-out;
+}
+
+.header-u-image {
+  width: 80px;
+  height: 80px;
+  left: 25vw;
+  top: 19px;
+  position: fixed;
+  transition: all 0.4s ease-in-out;
 }
 
 .active-tab {

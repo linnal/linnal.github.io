@@ -1,5 +1,5 @@
 <header id="header" class="site-header">
-
+    <img id="header-image" class="header-default-image" src="assets/images/linnal_u.png" />
     <div class="tab-container tab-left-container
       {% if page.path != 'about.html' %} active-tab {% else %} default-tab {% endif %} ">
       <a class="header-tab" href="{{ site.baseurl }}/">News</a>
@@ -15,11 +15,12 @@
   window.onscroll = function() {shrinkHeader()};
 
   function shrinkHeader() {
-      console.log("ciao");
       if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-          document.getElementById("header").className = "site-header shrink";
+        document.getElementById("header").className = "site-header shrink";
+        document.getElementById("header-image").className = "header-u-image";
       } else {
-          document.getElementById("header").className = "site-header";
+        document.getElementById("header").className = "site-header";
+        document.getElementById("header-image").className = "header-default-image";
       }
   }
 </script>
