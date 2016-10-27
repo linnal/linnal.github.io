@@ -186,7 +186,10 @@ pre {
     }
 }
 
-
+p {
+  font-family: $text-font-family;
+  color: $default-color;
+}
 
 /**
  * Icons

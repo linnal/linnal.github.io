@@ -10,7 +10,8 @@
     margin: 4px 2px;
     cursor: pointer;
     float: right;
-
+    font-family: $text-font-family;
+    
     &:hover {
       background-color: $active-color;
       color: $background-color;
