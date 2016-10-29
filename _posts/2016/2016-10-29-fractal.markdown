@@ -1,0 +1,68 @@
+---
+layout: post
+title: fractals
+date: '2016-10-29 23:38'
+image: assets/images/linnal.png
+---
+
+About fractals :)
+
+<!--more-->
+
+<link href="/css/fractal.css" rel="stylesheet" type="text/css">
+
+<div id="slider">
+  <p>HUE SHIFT</p>
+	<input class="bar" type="range" id="rangeinput" min="0" max="255" value="0" oninput="rangevalue.value=value; update_hue_shift(this.value)"/>
+	<output id="rangevalue">0</output>
+</div>
+
+<canvas id="glcanvas" width="700" height="480">
+    Your browser doesn't appear to support the
+    <code>&lt;canvas&gt;</code> element.
+</canvas>
+
+
+
+<script src="/js/fractal.js"></script>
+
+<script type="text/javascript">
+  var canvas = document.getElementById("glcanvas");
+  canvas.onmousewheel = function(event){
+    event.preventDefault();
+    var wheel = event.wheelDelta/120;
+    zoom(wheel);
+  }
+
+  var mouseIsDown = false;
+  var pos = {"x": 0, "y": 0};
+
+  canvas.onmousedown = function(e){
+      pos.x = e.x;
+      pos.y = e.y;
+
+      mouseIsDown = true;
+  }
+  canvas.onmouseup = function(e){
+      mouseIsDown = false;
+  }
+
+  canvas.onmousemove = function(e){
+      if(!mouseIsDown) return;
+      var dx = 0;
+      var dy = 0;
+
+      if(Math.abs(e.x - pos.x) > 5){
+        dx = ( e.x - pos.x > 0 ? 0.01 : -0.01 );
+        translate(dx, dy);
+        pos.x = e.x;
+      }
+      if(Math.abs(e.y - pos.y) > 5){
+        dy = ( e.y - pos.y > 0 ? -0.01 : 0.01 );
+        translate(dx, dy);
+        pos.y = e.y;
+      }
+
+  }
+
+</script>

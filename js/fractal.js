@@ -2,33 +2,21 @@ var gl; // A global variable for the WebGL context
 
 function start() {
   var canvas = document.getElementById("glcanvas");
-
-  // Initialize the GL context
   gl = initWebGL(canvas);
-
-  // Only continue if WebGL is available and working
   if (!gl) {
     return;
   }
-
-  // Set clear color to black, fully opaque
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  // Clear the color as well as the depth buffer.
   gl.clear(gl.COLOR_BUFFER_BIT);
 }
 
 
 function initWebGL(canvas) {
   gl = null;
-
-  // Try to grab the standard context. If it fails, fallback to experimental.
   gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
-
-  // If we don't have a GL context, give up now
   if (!gl) {
     alert("Unable to initialize WebGL. Your browser may not support it.");
   }
-
   return gl;
 }
 
@@ -40,13 +28,8 @@ function getShader(gl, source, type) {
       shader;
 
   shader = gl.createShader(type);
-
   gl.shaderSource(shader, source);
-
-  // Compile the gl_FragCoord.xyzer program
   gl.compileShader(shader);
-
-  // See if it compiled successfully
   if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
       alert("An error occurred compiling the shaders: " + gl.getShaderInfoLog(shader));
       gl.deleteShader(shader);
@@ -61,14 +44,10 @@ function initShaders() {
   var fragmentShader = getShader(gl, fragmentShaderSource, gl.FRAGMENT_SHADER);
   var vertexShader = getShader(gl, vertexShaderSource, gl.VERTEX_SHADER);
 
-  // Create the shader program
-
   shaderProgram = gl.createProgram();
   gl.attachShader(shaderProgram, vertexShader);
   gl.attachShader(shaderProgram, fragmentShader);
   gl.linkProgram(shaderProgram);
-
-  // If creating the shader program failed, alert
 
   if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
     alert("Unable to initialize the shader program: " + gl.getProgramInfoLog(shader));
@@ -85,8 +64,8 @@ var fragmentShaderSource = `precision highp float;
 varying vec3 v_position;
 #define MAX_ITERATIONS 256
 uniform int HUE_SHIFT;
-#define zoomlevel 0.7
-#define translation vec2(0.0, 0.0)
+uniform float zoomlevel;
+uniform vec2 translation;
 
 vec4 hsv_to_rgb(float h, float s, float v, float a);
 
@@ -167,12 +146,18 @@ function initBuffers() {
 }
 
 var HUE_SHIFT = 0;
+var zoomlevel = 1.0;
+var translation = [0.0, 0.0];
 
 function drawScene() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-  var pUniform = gl.getUniformLocation(shaderProgram, "HUE_SHIFT");
-  gl.uniform1i(pUniform, HUE_SHIFT);
+  var u_hue = gl.getUniformLocation(shaderProgram, "HUE_SHIFT");
+  gl.uniform1i(u_hue, HUE_SHIFT);
+  var u_zoom = gl.getUniformLocation(shaderProgram, "zoomlevel");
+  gl.uniform1f(u_zoom, zoomlevel);
+  var u_translation = gl.getUniformLocation(shaderProgram, "translation");
+  gl.uniform2fv(u_translation, translation);
 
 
   gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
@@ -184,7 +169,25 @@ initBuffers();
 drawScene();
 
 
-function showValue(newValue){
-	HUE_SHIFT = newValue;
+function update_hue_shift(value){
+	HUE_SHIFT = value;
+  drawScene();
+}
+
+function zoom(value){
+  value = value > 0 ? 0.1 : -0.1;
+  if(zoomlevel + value <= 0.1){
+    return;
+  }
+
+  zoomlevel += value;
+  drawScene();
+}
+
+function translate(dx, dy){
+  console.log(dx + " " + dy);
+  translation[0] += dx;
+  translation[1] += dy;
+
   drawScene();
 }
