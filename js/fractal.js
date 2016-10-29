@@ -66,7 +66,7 @@ function isMobile(){
 
 function getPrecision(){
   if(isMobile()){
-    return "precision medp";
+    return "precision mediump";
   }
   return "precision highp";
 }
