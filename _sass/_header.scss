@@ -2,6 +2,7 @@
     border-top: 6px solid $separetor-color;
     display: flex;
     position: fixed;
+    z-index: 99;
 
     padding-top: 100px;
     /* animation magic */

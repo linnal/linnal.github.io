@@ -84,7 +84,7 @@ function initShaders() {
 var fragmentShaderSource = `precision highp float;
 varying vec3 v_position;
 #define MAX_ITERATIONS 256
-#define HUE_SHIFT 130
+uniform int HUE_SHIFT;
 #define zoomlevel 0.7
 #define translation vec2(0.0, 0.0)
 
@@ -166,8 +166,14 @@ function initBuffers() {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 }
 
+var HUE_SHIFT = 0;
+
 function drawScene() {
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  var pUniform = gl.getUniformLocation(shaderProgram, "HUE_SHIFT");
+  gl.uniform1i(pUniform, HUE_SHIFT);
+
 
   gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
   gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
@@ -176,3 +182,9 @@ function drawScene() {
 
 initBuffers();
 drawScene();
+
+
+function showValue(newValue){
+	HUE_SHIFT = newValue;
+  drawScene();
+}
