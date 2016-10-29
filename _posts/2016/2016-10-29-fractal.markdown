@@ -42,10 +42,14 @@ About fractals :)
 
 
 
+<script src="/js/utils.js"></script>
 <script src="/js/fractal.js"></script>
 
 <script type="text/javascript">
+
   var canvas = document.getElementById("glcanvas");
+  canvas.style.width = "100%";
+
   canvas.onmousewheel = function(event){
     event.preventDefault();
     var wheel = event.wheelDelta/120;

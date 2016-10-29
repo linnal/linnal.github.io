@@ -34,6 +34,7 @@
   top: 66px;
   position: fixed;
   transition: all 0.4s ease-in-out;
+  visibility: hidden;
 }
 
 .header-u-image {
@@ -43,6 +44,16 @@
   top: 14px;
   position: fixed;
   transition: all 0.4s ease-in-out;
+  visibility: hidden;
+}
+
+@media screen and (min-width: 480px) {
+    .header-default-image {
+        visibility: visible;
+    }
+    .header-u-image {
+        visibility: visible;
+    }
 }
 
 .active-tab {

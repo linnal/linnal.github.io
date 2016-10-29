@@ -59,11 +59,6 @@ function initShaders() {
   gl.enableVertexAttribArray(vertexPositionAttribute);
 }
 
-
-function isMobile(){
-    return navigator.userAgent.match(/iPhone|iPad|iPod|Android/i);
-};
-
 function getPrecision(){
   if(isMobile()){
     return "precision mediump";
