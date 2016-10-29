@@ -12,9 +12,27 @@ About fractals :)
 <link href="/css/fractal.css" rel="stylesheet" type="text/css">
 
 <div id="slider">
-  <p>HUE SHIFT</p>
-	<input class="bar" type="range" id="rangeinput" min="0" max="255" value="0" oninput="rangevalue.value=value; update_hue_shift(this.value)"/>
-	<output id="rangevalue">0</output>
+  <h4 class="slider-name">HUE SHIFT</h4>
+  <div class="slider-content">
+  	<input class="bar" type="range" id="rangeinput" min="0" max="255" value="0" oninput="rangevalue.value=value; update_hue_shift(this.value)"/>
+  	<output id="rangevalue" class="rangevalue">0</output>
+  </div>
+</div>
+
+<div id="slider">
+  <h4 class="slider-name">Real</h4>
+  <div class="slider-content">
+  	<input class="bar" type="range" id="rangeinput" min="-1.0" max="1.0" value="0.0" step="0.001" oninput="rangevalue_x.value=value; update_julia_constant({'x': this.value})"/>
+  	<output id="rangevalue_x" class="rangevalue">0</output>
+  </div>
+</div>
+
+<div id="slider">
+  <h4 class="slider-name">Imaginary</h4>
+  <div class="slider-content">
+    <input class="bar" type="range" id="rangeinput" min="-1.0" max="1.0" value="0.8" step="0.001" oninput="rangevalue_y.value=value; update_julia_constant({'y': this.value})"/>
+  	<output id="rangevalue_y" class="rangevalue">0</output>
+  </div>
 </div>
 
 <canvas id="glcanvas" width="700" height="480">
