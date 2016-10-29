@@ -60,7 +60,18 @@ function initShaders() {
 }
 
 
-var fragmentShaderSource = `precision highp float;
+function isMobile(){
+    return navigator.userAgent.match(/iPhone|iPad|iPod|Android/i);
+};
+
+function getPrecision(){
+  if(isMobile()){
+    return "precision medp";
+  }
+  return "precision highp";
+}
+
+var fragmentShaderSource = getPrecision() + ` float;
 varying vec3 v_position;
 #define MAX_ITERATIONS 256
 uniform int HUE_SHIFT;
