@@ -1,14 +1,9 @@
 var gl; // A global variable for the WebGL context
 
-function start() {
-  var canvas = document.getElementById("glcanvas");
-  gl = initWebGL(canvas);
-  if (!gl) {
-    return;
-  }
-  gl.clearColor(0.0, 0.0, 0.0, 1.0);
-  gl.clear(gl.COLOR_BUFFER_BIT);
-}
+var HUE_SHIFT = 0;
+var zoomlevel = 1.0;
+var translation = [0.0, 0.0];
+var julia_constant = [0.0, 0.8];
 
 
 function initWebGL(canvas) {
@@ -65,6 +60,100 @@ function getPrecision(){
   }
   return "precision highp";
 }
+
+
+function initBuffers() {
+  squareVerticesBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
+
+  var vertices = [
+    1.0,  1.0,  0.0,
+    -1.0, 1.0,  0.0,
+    1.0,  -1.0, 0.0,
+    -1.0, -1.0, 0.0
+  ];
+
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+}
+
+function drawScene() {
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+  var u_hue = gl.getUniformLocation(shaderProgram, "HUE_SHIFT");
+  gl.uniform1i(u_hue, HUE_SHIFT);
+  var u_zoom = gl.getUniformLocation(shaderProgram, "zoomlevel");
+  gl.uniform1f(u_zoom, zoomlevel);
+  var u_translation = gl.getUniformLocation(shaderProgram, "translation");
+  gl.uniform2fv(u_translation, translation);
+  var u_julia_constant = gl.getUniformLocation(shaderProgram, "julia_constant");
+  gl.uniform2fv(u_julia_constant, julia_constant);
+
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
+  gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
+  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+}
+
+
+
+var Fractal = (function(){
+
+  var start = function(canvas){
+    gl = initWebGL(canvas);
+    if (!gl) {
+      return;
+    }
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+
+    initShaders();
+    initBuffers();
+    drawScene();
+  }
+
+  var update_hue_shift= function(value){
+  	HUE_SHIFT = value;
+    drawScene();
+  }
+
+  var zoom= function(value){
+    value = value > 0 ? 0.1 : -0.1;
+    if(zoomlevel + value <= 0.1){
+      return;
+    }
+
+    zoomlevel += value;
+    drawScene();
+  }
+
+  var translate= function(dx, dy){
+    translation[0] += dx;
+    translation[1] += dy;
+
+    drawScene();
+  }
+
+  var update_julia_constant= function(arg){
+    if(arg.x){
+      julia_constant[0] = arg.x;
+    }
+    if(arg.y){
+      julia_constant[1] = arg.y;
+    }
+    drawScene();
+  }
+
+  return {
+    start: start,
+    update_hue_shift: update_hue_shift,
+    zoom: zoom,
+    translate: translate,
+    update_julia_constant: update_julia_constant
+  }
+})();
+
+
+
 
 var fragmentShaderSource = getPrecision() + ` float;
 varying vec3 v_position;
@@ -131,83 +220,3 @@ var vertexShaderSource = `attribute vec3 aVertexPosition;
                               gl_Position = vec4(aVertexPosition, 1.0);
                               v_position = aVertexPosition;
                           }`;
-
-start();
-initShaders();
-
-
-
-function initBuffers() {
-  squareVerticesBuffer = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
-
-  var vertices = [
-    1.0,  1.0,  0.0,
-    -1.0, 1.0,  0.0,
-    1.0,  -1.0, 0.0,
-    -1.0, -1.0, 0.0
-  ];
-
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-}
-
-var HUE_SHIFT = 0;
-var zoomlevel = 1.0;
-var translation = [0.0, 0.0];
-var julia_constant = [0.0, 0.8];
-
-
-function drawScene() {
-  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-  var u_hue = gl.getUniformLocation(shaderProgram, "HUE_SHIFT");
-  gl.uniform1i(u_hue, HUE_SHIFT);
-  var u_zoom = gl.getUniformLocation(shaderProgram, "zoomlevel");
-  gl.uniform1f(u_zoom, zoomlevel);
-  var u_translation = gl.getUniformLocation(shaderProgram, "translation");
-  gl.uniform2fv(u_translation, translation);
-  var u_julia_constant = gl.getUniformLocation(shaderProgram, "julia_constant");
-  gl.uniform2fv(u_julia_constant, julia_constant);
-
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, squareVerticesBuffer);
-  gl.vertexAttribPointer(vertexPositionAttribute, 3, gl.FLOAT, false, 0, 0);
-  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-}
-
-initBuffers();
-drawScene();
-
-
-function update_hue_shift(value){
-	HUE_SHIFT = value;
-  drawScene();
-}
-
-function zoom(value){
-  value = value > 0 ? 0.1 : -0.1;
-  if(zoomlevel + value <= 0.1){
-    return;
-  }
-
-  zoomlevel += value;
-  drawScene();
-}
-
-function translate(dx, dy){
-  console.log(dx + " " + dy);
-  translation[0] += dx;
-  translation[1] += dy;
-
-  drawScene();
-}
-
-function update_julia_constant(arg){
-  if(arg.x){
-    julia_constant[0] = arg.x;
-  }
-  if(arg.y){
-    julia_constant[1] = arg.y;
-  }
-  drawScene();
-}
