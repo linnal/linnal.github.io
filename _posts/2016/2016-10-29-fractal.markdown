@@ -2,14 +2,14 @@
 layout: post
 title: fractals
 date: '2016-10-29 23:38'
-image: assets/images/linnal.png
+image: assets/images/fractal.png
 ---
 
 <link href="/css/fractal.css" rel="stylesheet" type="text/css">
 
 
 
-About fractals :)
+Playing with fractals :)
 
 <!--more-->
 
@@ -25,7 +25,7 @@ About fractals :)
 <div id="slider">
   <h4 class="slider-name">Real</h4>
   <div class="slider-content">
-  	<input class="bar" type="range" id="rangeinput" min="-1.0" max="1.0" value="0.0" step="0.001" oninput="rangevalue_x.value=value; Fractal.update_julia_constant({'x': this.value})"/>
+  	<input class="bar" type="range" id="rangeinput" min="-2.0" max="2.0" value="0.0" step="0.001" oninput="rangevalue_x.value=value; Fractal.update_julia_constant({'x': this.value})"/>
   	<output id="rangevalue_x" class="rangevalue">0</output>
   </div>
 </div>
@@ -33,7 +33,7 @@ About fractals :)
 <div id="slider">
   <h4 class="slider-name">Imaginary</h4>
   <div class="slider-content">
-    <input class="bar" type="range" id="rangeinput" min="-1.0" max="1.0" value="0.8" step="0.001" oninput="rangevalue_y.value=value; Fractal.update_julia_constant({'y': this.value})"/>
+    <input class="bar" type="range" id="rangeinput" min="-2.0" max="2.0" value="0.8" step="0.001" oninput="rangevalue_y.value=value; Fractal.update_julia_constant({'y': this.value})"/>
   	<output id="rangevalue_y" class="rangevalue">0</output>
   </div>
 </div>
