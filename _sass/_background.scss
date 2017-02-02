@@ -1,0 +1,144 @@
+$colors: #725394, #8cc53d, #FF5A79, #27D8C3, #dbdcdd;
+
+#body_error {
+  background: #474f58;
+}
+
+
+.line,
+.dot {
+  position: absolute;
+  opacity: 0.5;
+}
+
+@for $i from 1 through 40 {
+  $stack: random(70);
+  .line:nth-of-type(#{$i}) {
+    @if $stack > 35 {
+      box-shadow: -4px -4px 1px rgba(0, 0, 0, 0.3);
+    }
+    background: nth($colors, random(length($colors)));
+    width: (random(500) + 30) + px;
+    height: (random(60) + 3) + px;
+    border-radius: 40px;
+    transform: rotate(-25deg);
+    top: random(900) + px;
+    left: random(2000) + px;
+    z-index: $stack;
+  }
+}
+
+@for $i from 41 through 70 {
+  .dot:nth-of-type(#{$i}) {
+    @if random(2) == 1 {
+      box-shadow: -4px -4px 1px rgba(0, 0, 0, 0.3);
+    }
+    background: nth($colors, random(length($colors)));
+    $dim: (random(50) + 10) + px;
+    width: $dim;
+    height: $dim;
+    border-radius: 50%;
+    top: random(900) + px;
+    left: random(2000) + px;
+    z-index: (random(40) + -40);
+  }
+}
+
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  line-height: 40px;
+  font-family: 'Lato', sans-serif;
+  color: #ecf0f1;
+  height: 160px;
+  overflow:hidden;
+}
+
+.visible {
+  font-weight:600;
+  overflow:hidden;
+  height:40px;
+  padding:0 40px;
+
+  &:before {
+    content:'[';
+    left: 0;
+    line-height:40px;
+  }
+  &:after {
+    content:']';
+    position:absolute;
+    right: 0;
+    line-height:40px;
+  }
+  &:after, &:before {
+    position:absolute;
+    top:0;
+    color:#16a085;
+    font-size:42px;
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: opacity;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+  }
+}
+
+.error_p {
+  display:inline;
+  float:left;
+  margin:0;
+  color: white;
+}
+
+ul {
+  margin-top:0;
+  padding-left:110px;
+  text-align:left;
+  list-style:none;
+  -webkit-animation-name: change;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: change;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+}
+
+ul li {
+  line-height:40px;
+  margin:0;
+}
+
+@-webkit-keyframes opacity {
+  0%, 100% {opacity:0;}
+  50% {opacity:1;}
+}
+
+@-webkit-keyframes change {
+  0%, 12%, 100% {transform:translateY(0);}
+  17%,29% {transform:translateY(-25%);}
+  34%,46% {transform:translateY(-50%);}
+  51%,63% {transform:translateY(-75%);}
+  68%,80% {transform:translateY(-50%);}
+  85%,97% {transform:translateY(-25%);}
+}
+
+@keyframes opacity {
+  0%, 100% {opacity:0;}
+  50% {opacity:1;}
+}
+
+@keyframes change {
+  0%, 12%, 100% {transform:translateY(0);}
+  17%,29% {transform:translateY(-25%);}
+  34%,46% {transform:translateY(-50%);}
+  51%,63% {transform:translateY(-75%);}
+  68%,80% {transform:translateY(-50%);}
+  85%,97% {transform:translateY(-25%);}
+}
