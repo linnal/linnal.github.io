@@ -5,6 +5,13 @@
    border: 6px solid $separetor-color;
 }
 
+@media screen and (max-width: 800px) {
+  .profile_image {
+     width: 150px;
+     height: 150px;
+  }
+}
+
 .about-description {
   margin-top: 50px;
   text-align: justify;
@@ -45,6 +52,10 @@
   margin: auto;
 }
 
+.p_expertise {
+  font-weight: bold;
+}
+
 .expertise {
   display: flex;
   flex-direction: row;
@@ -57,8 +68,19 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    margin: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
     background-size: contain;
+    transition: all .1s ease-in-out;
+
+    > .link {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .elem:hover {
+    transform: scale(1.1);
   }
 
   > .js {

@@ -4,54 +4,26 @@
     position: fixed;
     z-index: 99;
 
-    padding-top: 100px;
+    padding-top: 50px;
     /* animation magic */
-    transition: all 0.4s ease-in-out;
     top: 0;
     background-color: $background-color;
     box-shadow: 0px 10px 15px $default-color;
-}
-
-.shrink {
-  padding-top: 20px;
-
-  &:hover {
-    padding-top: 100px;
-  }
-}
-
-
-.site-header:hover .header-u-image {
-  width: 120px;
-  height: 120px;
-  top: 66px;
 }
 
 .header-default-image {
   width: 120px;
   height: 120px;
   left: 20vw;
-  top: 66px;
+  top: 16px;
   position: fixed;
   transition: all 0.4s ease-in-out;
   visibility: hidden;
 }
 
-.header-u-image {
-  width: 80px;
-  height: 80px;
-  left: 20vw;
-  top: 14px;
-  position: fixed;
-  transition: all 0.4s ease-in-out;
-  visibility: hidden;
-}
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 800px) {
     .header-default-image {
-        visibility: visible;
-    }
-    .header-u-image {
         visibility: visible;
     }
 }

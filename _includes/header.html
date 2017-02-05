@@ -13,17 +13,3 @@
 
 <script src="/js/utils.js"></script>
 
-<script>
-  window.onscroll = function() {shrinkHeader()};
-
-  function shrinkHeader() {
-      if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-        document.getElementById("header").className = "site-header shrink";
-        document.getElementById("header-image").className = "header-u-image";
-      } else {
-        document.getElementById("header").className = "site-header";
-        document.getElementById("header-image").className = "header-default-image";
-      }
-  } 
-
-</script>
