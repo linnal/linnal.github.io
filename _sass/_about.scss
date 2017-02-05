@@ -44,3 +44,50 @@
 .info-content {
   margin: auto;
 }
+
+.expertise {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  > .elem {
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 10px;
+    background-size: contain;
+  }
+
+  > .js {
+    background-image: url("/assets/images/about/js.jpg")
+  }
+  > .rails {
+    background-image: url("/assets/images/about/rails.png")
+  }
+  > .android {
+    background-image: url("/assets/images/about/android.png")
+  }
+  > .java {
+    background-image: url("/assets/images/about/java.png");
+    background-color: #EBEBEB;
+  }
+  > .kotlin {
+    background-image: url("/assets/images/about/kotlin.png");
+    background-color: #A9B4EF;
+  }
+  > .python {
+    background-image: url("/assets/images/about/python.png");
+    background-color: #1E415E;
+  }
+  > .nodejs {
+    background-image: url("/assets/images/about/nodejs.png");
+    background-color: #A9B4EF;
+  }
+  > .nodered {
+    background-image: url("/assets/images/about/nodered.png");
+    background-color: #1E415E;
+  }
+}
