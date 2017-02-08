@@ -1,0 +1,17 @@
+.div_share_icons {
+  position: fixed;
+  top: 50vh;
+  z-index: 99;
+}
+
+#ul_icon {
+  list-style:none;
+  margin-left: 0px;
+}
+
+.icon > svg {
+  width: 30px;
+  height: 30px;
+  padding-top: 10px;
+}
+
