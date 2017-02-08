@@ -1,4 +1,4 @@
-.content {
+.div_error {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,7 +50,7 @@
   color: #474f58;
 }
 
-ul {
+.ul_error {
   margin-top:0;
   padding-left:110px;
   text-align:left;
@@ -61,11 +61,11 @@ ul {
   animation-name: change;
   animation-duration: 6s;
   animation-iteration-count: infinite;
-}
 
-ul li {
-  line-height:40px;
-  margin:0;
+  >li {
+    line-height:40px;
+    margin:0;
+  }
 }
 
 @-webkit-keyframes opacity {
