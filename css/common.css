@@ -1,3 +1,15 @@
 .pink_link {
   color: #D8273C;
 }
+
+.left_100 {
+    margin-left: 100px;
+}
+
+.flex {
+  display: flex;
+}
+
+.shrink {
+  display: inline-block;
+}
