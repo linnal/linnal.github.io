@@ -55,12 +55,8 @@
 
 .tab-container {
     width: 50vw;
-    border-bottom: thick solid;
+    border-bottom: 8px solid;
     align-self: flex-end;
-    margin-bottom: 5px;
-    margin-left: 1px;
-    margin-right: 1px;
-    // color: $default-color;
     &:hover {
       border-color: $active-color;
       color: $active-color;
