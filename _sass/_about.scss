@@ -55,19 +55,23 @@
   display: flex;
 }
 
+.center {
+  text-align: center;
+}
+
 .info-content {
   margin: auto;
 }
 
 .half-width {
-  width: 400px;
-  margin-left: 30px;
-  margin-right: 30px;
+  width: 45%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
     .half-width {
-        margin-left: 10px;
+        margin-left: 0px;
         margin-right: 0px;
         width: 100vw;
     }
@@ -158,6 +162,6 @@
   }
   > .github {
     background-image: url("/assets/images/about/github.png");
-    background-color: #808080;
+    background-color: #3e4041;
   }
 }
