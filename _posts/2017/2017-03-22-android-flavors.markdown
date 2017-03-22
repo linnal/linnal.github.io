@@ -56,7 +56,7 @@ emails that matches the name you inserted. So the structure of your code looks l
       <br /> &nbsp; &nbsp; &nbsp;
           └── java
       <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    
-              └── it.linnal.tddttutial
+              └── it.linnal.androidflavor
       <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                   ├── EmailApi.java
       <br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
@@ -95,7 +95,7 @@ emails that matches the name you inserted. So the structure of your code looks l
           <br />
       │   &nbsp; &nbsp; &nbsp;└── java
       <br/>
-      │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;   └── it.linnal.tddttutial
+      │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;   └── it.linnal.androidflavor
       <br />
 
       │ &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; └── MainActivity.java
@@ -104,7 +104,7 @@ emails that matches the name you inserted. So the structure of your code looks l
       <br />
       │  &nbsp; &nbsp; &nbsp; └── java
       <br />
-      │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;   └── it.linnal.tddttutial
+      │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;   └── it.linnal.androidflavor
       <br />
       │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;       └── EmailApi.java
       <br />
@@ -112,7 +112,7 @@ emails that matches the name you inserted. So the structure of your code looks l
       <br />
           &nbsp; &nbsp; &nbsp;└── java
       <br />
-              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;└── it.linnal.tddttutial
+              &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;└── it.linnal.androidflavor
       <br />
           &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;        └── EmailApi.java
     </p>
