@@ -1,9 +1,10 @@
 ---
-layout: "post"
-title: "How to use Android Product Flavors"
-date: "2017-03-22 17:28"
-image: "assets/images/android_icon.png"
+layout: post
+title: How to use Android Product Flavors
+date: '2017-03-22 23:11'
+image: assets/images/android_icon.png
 ---
+
 <p> The idea came to me when I saw this
 <a class="pink_link" href="https://www.youtube.com/watch?v=vdasFFfXKOY">video</a> on Android Testing.
 Suppose you want to create a fully mocked version of your application, despite the one you are doing
