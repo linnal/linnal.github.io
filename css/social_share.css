@@ -12,6 +12,9 @@
 .icon > svg {
   width: 30px;
   height: 30px;
-  padding-top: 10px;
 }
 
+
+.middle {
+  font-size: 20px;
+}

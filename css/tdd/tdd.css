@@ -1,0 +1,59 @@
+.padding_top {
+  padding-top: 1.5em
+}
+
+
+.bullet_point {
+  width: 13px;
+  height: 13px;
+  background: #ee386c;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+
+.green{
+  color: #8cc53d;
+}
+
+.red{
+  color: #ee386c;
+}
+
+.tdd_img{
+  display: block;
+  margin: auto;
+  width: 40%
+}
+
+.meme_img{
+  display: block;
+  margin: auto;
+  width: 20%;
+  height: 20%;
+}
+
+
+.handwritten{
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.4em;
+  color: white;
+}
+
+.error_statement{
+  background: #ea4747;
+  padding: 20px 10px 20px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px 0px 2px 0px;
+  border-color: #444444;
+}
+
+.error_statement > p {
+  font-size: 1.2em;
+  color: white;
+  margin-bottom: 0px;
+      font-family: "Istok Web", sans-serif;
+}

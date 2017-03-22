@@ -10,6 +10,55 @@
   display: flex;
 }
 
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.center-content {
+  justify-content: center;
+}
+
 .shrink {
   display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.half {
+  width: 50%;
+}
+
+.statement {
+  background: #444444;
+  padding: 20px 10px 20px 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px 0px 2px 0px;
+  border-color: #8cc53d;
+}
+
+.statement > p {
+  font-size: 1.2em;
+  color: white;
+  margin-bottom: 0px;
+      font-family: "Istok Web", sans-serif;
+}
+
+.justify {
+  text-align: justify;
 }
