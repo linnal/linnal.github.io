@@ -5,13 +5,15 @@ date: '2017-03-22 23:11'
 image: assets/images/android_icon.png
 ---
 
-<p> The idea came to me when I saw this
-<a class="pink_link" href="https://www.youtube.com/watch?v=vdasFFfXKOY">video</a> on Android Testing.
+<p> I found this useful
+<a class="pink_link" href="https://www.youtube.com/watch?v=vdasFFfXKOY">video</a> on Android Testing
+and I thought to talk about it here.
 Suppose you want to create a fully mocked version of your application, despite the one you are doing
-for production.
+for production. This is where productFlavors come in.
 </p>
 <!--more-->
-This is where productFlavors come in. You can have different Hosts, Icons or Package Names deppending on different versions of the same app. Open your **app/build.gradle** file and insert the following:
+
+You can have different Hosts, Icons or Package Names deppending on different versions of the same app. Open your **app/build.gradle** file and insert the following:
 
 
 ~~~ java
