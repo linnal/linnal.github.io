@@ -11,7 +11,7 @@ Suppose you want to create a fully mocked version of your application, despite t
 for production.
 </p>
 <!--more-->
-This is where productFlavors come in. Open your **app/build.gradle** file and insert the following:
+This is where productFlavors come in. You can have different Hosts, Icons or Package Names deppending on different versions of the same app. Open your **app/build.gradle** file and insert the following:
 
 
 ~~~ java
@@ -130,5 +130,66 @@ the same email for whatever input you insert, so you do not need to call the rea
   * If you choose <strong>mock</strong> you will see that whatever you insert you will get back the same email.
   <br />
   * If you choose <strong>prod</strong> you will be calling the API.
+  </p>
+</div>
+
+<br/>
+
+<h3 class="post-title"> Different Global Variables per Flavor </h3>
+
+~~~ java
+android {
+    ...
+
+    productFlavors {
+        mock {
+            applicationIdSuffix ".mock"
+            versionNameSuffix "-mock"
+            buildConfigField "String", "api_host", "http://localhost:3000"
+        }
+        prod {
+            applicationIdSuffix ".prod"
+            versionNameSuffix "-prod"
+            buildConfigField "String", "api_host", "http://some_other_url"
+        }
+    }
+}
+~~~
+
+You can access to api_host as following:
+
+> BuildConfig.api_host
+
+<br/>
+<br/>
+
+<h3 class="post-title"> Different Res Content per Flavor </h3>
+
+If you want to reuse the same application, but with different colors and images,
+create the **res** folder under your flavors with the wanted modifications. Just the
+ones you want to change.
+
+
+<div class="statement">
+  <p>
+    app/src
+    <br />
+    ├── main
+    <br />
+    ├── mock
+    <br />
+    │  &nbsp; &nbsp; &nbsp; └── res
+    <br />
+    │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;  └── values
+    <br />
+    │    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;       └── colors.xml
+    <br />
+    └── prod
+    <br />
+        &nbsp; &nbsp; &nbsp;└── res
+    <br />
+            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;└── values
+    <br />
+        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;        └── colors.xml
   </p>
 </div>
