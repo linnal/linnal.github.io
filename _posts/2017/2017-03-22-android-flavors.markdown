@@ -5,7 +5,7 @@ date: '2017-03-22 23:11'
 image: assets/images/android_icon.png
 ---
 
-<p> I found this useful
+<p class="justify"> I found this useful
 <a class="pink_link" href="https://www.youtube.com/watch?v=vdasFFfXKOY">video</a> on Android Testing
 and I thought to talk about it here.
 Suppose you want to create a fully mocked version of your application, despite the one you are doing
@@ -13,8 +13,8 @@ for production. This is where productFlavors come in.
 </p>
 <!--more-->
 
-You can have different Hosts, Icons or Package Names deppending on different versions of the same app. Open your **app/build.gradle** file and insert the following:
-
+<p class="justify">You can have different Hosts, Icons or Package Names deppending on different versions of the same app. Open your <strong>app/build.gradle</strong> file and insert the following:
+</p>
 
 ~~~ java
 android {
@@ -33,9 +33,9 @@ android {
 }
 ~~~
 
-We are creating two different flavors **mock** and **prod**, once you sync your gradle file
-you will see the following in your **Build Variants**
-
+<p class="justify"> We are creating two different flavors <strong>mock</strong> and <strong>prod</strong>, once you sync your gradle file
+you will see the following in your <strong>Build Variants</strong>
+</p>
 ![Build Variants](/assets/images/android/build_variable.png)
 
 <br />
@@ -44,10 +44,10 @@ you will see the following in your **Build Variants**
 
 <h3 class="post-title"> Now, let's try to use them! </h3>
 
-I have created a simple code, just to give an idea how things will look like.
+<p class="justify">I have created a simple code, just to give an idea how things will look like.
 We have a field were we write a name, and give this name to an API that will give you back a list of
 emails that matches the name you inserted. So the structure of your code looks like the following:
-
+</p>
 <div class="statement">
     <p>
       app/src
@@ -66,13 +66,13 @@ emails that matches the name you inserted. So the structure of your code looks l
     </p>
   </div>
   <div class="flex-column">
-    <p> What <strong>EmailApi</strong> class does, is a POST request to a give URL (the url you'll use in production).
+    <p class="justify"> What <strong>EmailApi</strong> class does, is a POST request to a give URL (the url you'll use in production).
     <br/>
     Now that we introduced the concept of <strong>productFlavor</strong>, let's make the modifications to use them.</p>
   </div>
   <br/>
 
-  <p>Create <strong>mock</strong> and <strong>prod</strong> folders under <strong>src</strong> </p>  
+  <p class="justify">Create <strong>mock</strong> and <strong>prod</strong> folders under <strong>src</strong> </p>  
   <div class="statement ">
     <p>
       app/src
@@ -86,7 +86,7 @@ emails that matches the name you inserted. So the structure of your code looks l
   </div>
   <br/>
 
-  <p>Now copy the class EmailApi.java inside both of them and remove it from <strong>main</strong>. Things will still work as before. </p>
+  <p class="justify">Now copy the class EmailApi.java inside both of them and remove it from <strong>main</strong>. Things will still work as before. </p>
   <div class="statement">
     <p>
       app/src
@@ -121,12 +121,12 @@ emails that matches the name you inserted. So the structure of your code looks l
   </div>
 
   <br/>
-Now you can modify EmailApi.java under **mock** to return an hardcoded result. For example, return always
+<p class="justify">Now you can modify EmailApi.java under <strong>mock</strong> to return an hardcoded result. For example, return always
 the same email for whatever input you insert, so you do not need to call the real API anymore.
-
+</p>
 <br/>
 <div class="statement">
-  <p>
+  <p class="justify">
   Depending on which environment you want your app to run, choose it under <strong>Build Variants</strong>.
   <br />
   * If you choose <strong>mock</strong> you will see that whatever you insert you will get back the same email.
@@ -167,10 +167,10 @@ You can access to api_host as following:
 
 <h3 class="post-title"> Different Res Content per Flavor </h3>
 
-If you want to reuse the same application, but with different colors and images,
-create the **res** folder under your flavors with the wanted modifications. Just the
+<p class="justify">If you want to reuse the same application, but with different colors and images,
+create the <strong>res</strong> folder under your flavors with the wanted modifications. Just the
 ones you want to change.
-
+</p>
 
 <div class="statement">
   <p>
