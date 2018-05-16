@@ -70,7 +70,7 @@ Now, I understand that it’s not just women who receive unfair treatment but if
 I am investing my free time in this, because as a female I felt the necessity to do networking with other females, to keep learning and help them to push themselves so they can feel empowered as they go forward.
 </p>
 </div>
-It will take work and a lor of time but it is totally worth it!
+It will take work and a lot of time but it is totally worth it!
 <div style="text-align:center">
   <img src= "http://redsitewins.files.wordpress.com/2011/08/x-all-the-things-meme-generator-thank-you-73fc65.png"/>
 </div>
